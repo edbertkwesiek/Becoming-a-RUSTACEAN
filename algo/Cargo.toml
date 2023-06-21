@@ -1,8 +1,26 @@
 [package]
 name = "algo"
-version = "0.1.0"
 edition = "2021"
+version = "0.8.5-alpha.0"
+rust-version = "1.69.0"
+homepage = "https://arkworks.rs"
+repository = "https://github.com/Pratyush/algebra-intro"
+documentation = "https://docs.rs/arks-algebra-intro/"
+keywords = ["cryptography", "finite-fields", "elliptic-curves","pairings"]
+category = ["cryptography"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
+[Workspace]
+
+
 [dependencies]
+
+ark-ff = { version = "0.4", features = ["asm"]}
+num-bigint = {version = "0.4"}
+ark-std = { version = "0.3"}
+ark-ec = {version ="0.3" }
+ark-serialize = { version = "0.3"}
+ark-bls12-381 = {version = "0.3", features = ["curve"] }
+rand = { version = "0.8.5",  features = ["std", "std_rng"] }
+

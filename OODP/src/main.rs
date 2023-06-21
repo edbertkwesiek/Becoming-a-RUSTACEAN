@@ -1,25 +1,46 @@
-#![allow(non_snake_case)]
-//   this is JUST about traits
-#[allow(non_snake_case)]
+fn reverse(pair:(i32, bool)) -> (bool, i32){
 
-use std::str;
-struct Container<T>{ 
-value: T 
+    // let can be used to bind the members of a tuple to variables
+    let (int_param, bool_param) = pair;
+
+    (bool_param , int_param)
 }
-impl<T>Container<T>{ 
-    fn give_me(value: T ){
-        let _ = value ;
-    }
+
+// The following struct is for the activity 
+use std::thread; 
+
+
+
+#[derive(Debug)]
+
+struct Matrix(f32, f32, f32, f32);
+
+pub struct Mutex<T:?Sized><T:long_tuple>;{
+    long_tuple(u8, u16,u32, i8, i16, i32, i64, f32, f64, bool)
+}
+
+
     
-}
+
+
+    // A tuple with a bunch of different type
+
 fn main() {
-    let a = "generics";
-    let b = 1024;
+    //A tuple with a bunch of different types,
 
+    let Long_Tuple:Mutex<T> = Mutex::<T>:: (1u8, 2u16, 3u32,  -1i8, -2i16, -3i32, -4i64, 0.1f32, 0.2f64, 'a', true);
 
-    let  give_me = 45;
-    
-    let num_from_str = str::parse::<u8>("34").unwrap();
-    println!(" Parsed number {}", num_from_str);
+    thread::scope(|s| {
+        s.spawn(|| {
+            println!(" length:{}", long_tuple.len());
+        });
+        s.spawn(|| {
+             for n in &long_tuple{
+                println!("{n}");
+             }
+            });
+    });
+
 }
 
+// the issue here s we are looking for a heterogenous mutex  to be able to represent a mutable tuple 
